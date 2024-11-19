@@ -4,7 +4,7 @@ USE SPTech;
 
 CREATE TABLE aluno(
     RA INT PRIMARY KEY,
-    nome VARCHAR(50),
+    nome VARCHAR(50)
 );
 
 CREATE TABLE especialidade(
