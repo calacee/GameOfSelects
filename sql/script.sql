@@ -10,7 +10,7 @@ CREATE TABLE aluno(
 CREATE TABLE especialidade(
     fkAluno INT PRIMARY KEY,
     area VARCHAR(20),
-    nivel INT,
+    nivel VARCHAR(25),
     CONSTRAINT CHKNivel CHECK(nivel IN('Avançado','Intermediário','Iniciante')),
     FOREIGN KEY(fkAluno) REFERENCES aluno(RA) 
 );
