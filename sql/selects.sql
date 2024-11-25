@@ -81,3 +81,46 @@ FROM vilao, vilaoDoAluno, aluno
 WHERE vilao.idVilao = vilaoDoAluno.fkVilao
   AND vilaoDoAluno.fkAluno = aluno.RA
   AND aluno.RA > 01242050;
+
+
+SELECT CHALLENGES
+
+SELECT 
+    a.nome AS aluno,
+    p.poder AS poder,
+    v.nome AS vilao,
+    f.fraqueza AS fraqueza,
+    COUNT(pa.idPoderAluno) AS qtdPoderes, 
+    AVG(pa.QtdPoder) AS mediaPoderes,
+    MAX(pa.QtdPoder) AS maiorPoder,
+    MIN(pa.QtdPoder) AS menorPoder
+FROM aluno a
+LEFT JOIN poderAluno pa ON a.RA = pa.fkAluno
+LEFT JOIN poder p ON pa.fkPoder = p.idPoder
+RIGHT JOIN vilaoDoAluno vda ON a.RA = vda.fkAluno -- Certifique-se de usar o nome correto!
+JOIN vilao v ON vda.fkVilao = v.idVilao
+JOIN fraqueza f ON f.fraqueza = p.poder
+WHERE a.nome LIKE '%a%' -- Nome do aluno contém "a"
+GROUP BY a.nome, p.poder, v.nome, f.fraqueza
+ORDER BY qtdPoderes DESC;
+
+
+SELECT 
+    a.nome AS aluno,
+    p.poder AS poder,
+    COUNT(vda.fkVilao) AS qtdViloes, -- Contagem direta dos vilões
+    v.nome AS vilao,
+    f.fraqueza AS fraqueza,
+    COUNT(pa.idPoderAluno) AS qtdPoderes,
+    AVG(pa.QtdPoder) AS mediaPoderes,
+    MAX(pa.QtdPoder) AS maiorPoder,
+    MIN(pa.QtdPoder) AS menorPoder
+FROM aluno a
+LEFT JOIN poderAluno pa ON a.RA = pa.fkAluno
+JOIN poder p ON pa.fkPoder = p.idPoder
+LEFT JOIN vilaoDoAluno vda ON a.RA = vda.fkAluno
+JOIN vilao v ON vda.fkVilao = v.idVilao
+JOIN fraqueza f ON f.fraqueza = p.poder
+WHERE v.nome LIKE 'C%' -- Nome do vilão começa com "C"
+GROUP BY a.nome, p.poder, v.nome, f.fraqueza
+ORDER BY mediaPoderes ASC;
