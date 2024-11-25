@@ -29,6 +29,7 @@ INSERT INTO poder (poder) VALUES
 
 CREATE TABLE poderAluno(
     idPoderAluno int AUTO_INCREMENT,
+    QtdPoder float,
     fkPoder int,
     fkAluno int,
     FOREIGN KEY(fkAluno) REFERENCES aluno(RA),
@@ -36,11 +37,11 @@ CREATE TABLE poderAluno(
     PRIMARY KEY(idPoderAluno, fkAluno, fkPoder)
 );
 INSERT INTO poderAluno (fkPoder, fkAluno) VALUES
-(1, 01242074), -- Luz: Invisibilidade
-(2, 01242049), -- Luiza: Super Força
-(3, 01242137), -- Paloma: Controle de Tecnologia
-(4, 01242061), -- Calace: Telepatia
-(5, 01242015); -- Mateus: Velocidade Sobrenatural
+(100,1, 01242074), -- Luz: Invisibilidade
+(100,2, 01242049), -- Luiza: Super Força
+(100,3, 01242137), -- Paloma: Controle de Tecnologia
+(100,4, 01242061), -- Calace: Telepatia
+(100,5, 01242015); -- Mateus: Velocidade Sobrenatural
 
 
 CREATE TABLE vilao (
