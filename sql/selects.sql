@@ -37,10 +37,10 @@ FROM poder
 ORDER BY poder DESC
 LIMIT 1;
 
--- (Facil)8. Quais poderes têm nomes com mais de 10 caracteres?
+-- (Facil)8. Quais poderes têm o id maior que 10?
 SELECT poder
 FROM poder
-WHERE CHAR_LENGTH(poder) > 10;
+WHERE idPoder > 10;
 
 -- (Facil)9. Liste os poderes com IDs menores que 4.
 SELECT idPoder, poder
