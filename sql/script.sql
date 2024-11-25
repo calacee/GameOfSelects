@@ -4,7 +4,9 @@ USE SPTech;
 
 CREATE TABLE aluno(
     RA INT PRIMARY KEY,
-    nome VARCHAR(50)
+    nome VARCHAR(50),
+    fkMonitor int,
+    FOREIGN KEY(fkMonitor) REFERENCES aluno(RA)
 );
 INSERT INTO aluno (RA, nome) VALUES
 (01242074, 'Luz'),
@@ -72,7 +74,7 @@ CREATE TABLE vilaoDoAluno (
     CONSTRAINT fkdoVilao FOREIGN KEY (fkVilao) REFERENCES vilao(idVilao),
     CONSTRAINT fkdoAluno FOREIGN KEY (fkAluno) REFERENCES aluno(RA)
 );
-INSERT INTO vilaoAluno (fkVilao, fkAluno) VALUES
+INSERT INTO vilaoDoAluno (fkVilao, fkAluno) VALUES
 (1, 01242137), -- Dr. Malware enfrenta Paloma (Controle de Tecnologia)
 (2, 01242074), -- Shadow enfrenta Luz (Invisibilidade)
 (3, 01242015), -- Captain Bug enfrenta Mateus (Velocidade Sobrenatural)
