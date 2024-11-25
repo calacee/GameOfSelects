@@ -1,3 +1,4 @@
+
 CREATE DATABASE SPTech;
 
 USE SPTech;
@@ -36,7 +37,7 @@ CREATE TABLE poderAluno(
     FOREIGN KEY(fkPoder) REFERENCES poder(idPoder),
     PRIMARY KEY(idPoderAluno, fkAluno, fkPoder)
 );
-INSERT INTO poderAluno (fkPoder, fkAluno) VALUES
+INSERT INTO poderAluno (QtdPoder, fkPoder, fkAluno) VALUES
 (100,1, 01242074), -- Luz: Invisibilidade
 (100,2, 01242049), -- Luiza: Super Força
 (100,3, 01242137), -- Paloma: Controle de Tecnologia
@@ -81,4 +82,7 @@ INSERT INTO vilaoDoAluno (fkVilao, fkAluno) VALUES
 (3, 01242015), -- Captain Bug enfrenta Mateus (Velocidade Sobrenatural)
 (4, 01242061), -- Trojanizer enfrenta Calace (Telepatia)
 (5, 01242049); -- Overclock enfrenta Luiza (Super Força)
+
+    
+
 
