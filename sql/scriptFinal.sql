@@ -296,6 +296,18 @@ GROUP BY v.nome, f.fraqueza;
 
 -- DESAFIO --
 -- (Desafio) 1.
+--Relatório Detalhado de Alunos, Poderes e Vilões com Funções Matemáticas
+-- Instrução:
+
+    --Liste os alunos, seus poderes, os vilões enfrentados e as respectivas fraquezas de cada vilão.
+    --Calcule funções matemáticas sobre os poderes dos alunos:
+      --  Contagem total de poderes (COUNT),
+        --Média dos poderes (AVG),
+       -- Maior poder (MAX),
+       -- Menor poder (MIN).
+    --Inclua apenas os alunos cujos nomes contêm a letra "a".
+    --Agrupe os resultados por aluno, poder, vilão e fraqueza.
+    --Ordene pela quantidade de poderes em ordem decrescente.
 SELECT 
 a.nome AS aluno,
 p.poder AS poder,
@@ -316,6 +328,24 @@ GROUP BY a.nome, p.poder, v.nome, f.fraqueza
 ORDER BY qtdPoderes DESC;
 
 -- (Desafio) 2.
+--Análise de Vilões com Nome Iniciado por 'C' e Seus Respectivos Alunos
+--Instrução:
+
+  --  Liste os alunos e seus poderes relacionados aos vilões cujos nomes começam com a letra "C".
+   -- Inclua as seguintes informações:
+     --   A quantidade de vilões enfrentados por cada aluno,
+       -- O nome do vilão,
+        --A fraqueza do vilão,
+       -- Estatísticas dos poderes dos alunos (usando funções matemáticas):
+         --   Contagem total de poderes (COUNT),
+          --  Média dos poderes (AVG),
+          --  Maior poder (MAX),
+          --  Menor poder (MIN).
+    -- Agrupe os resultados por aluno, poder, vilão e fraqueza.
+   -- Ordene os resultados pela média dos poderes em ordem crescente.
+
+
+
 SELECT 
 a.nome AS aluno,
 p.poder AS poder,
